@@ -1,3 +1,3 @@
-import app from '../dist/server/server.mjs';
+const server = import('../dist/server/server.mjs');
 
-module.exports = app();
+module.exports = server.app;
