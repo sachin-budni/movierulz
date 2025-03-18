@@ -12,8 +12,6 @@ import { ThemeDirective } from '../theme/theme.directive';
 import { BehaviorSubject, Observable } from 'rxjs';
 const routes: Routes = [
   { path: '', component: LayoutComponent, children: [
-    { path: 'all/trendingchart', loadComponent: () => import('./../components/trending-chart/trending-chart.component')
-      .then(c => c.TrendingChartComponent) , data: { title: 'trendingchart', name: 'Trending Chart' } },
     { path: 'tv', loadChildren: () => import('./../pages/tv/tv.module').then(m=> m.TvModule) },
     { path: 'people', loadChildren: () => import('./../pages/people/people.module').then(m=> m.PeopleModule) },
     { path: '', loadChildren: () => import('./../pages/movie/movie.module').then(m=> m.MovieModule) },

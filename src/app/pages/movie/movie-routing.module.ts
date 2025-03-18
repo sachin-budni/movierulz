@@ -5,11 +5,8 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { LatestMoviesComponent } from './latest-movies/latest-movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieLayoutComponent } from './movie-layout/movie-layout.component';
-import { TrendingChartComponent } from 'src/app/components/trending-chart/trending-chart.component';
 const routes: Routes = [
   { path: 'movie', component: MovieLayoutComponent, children: [
-      { path: 'trendingchart', loadComponent: () => import('./../../components/trending-chart/trending-chart.component')
-        .then(c => c.TrendingChartComponent), data: { title: 'trendingchart', name: 'Trending Chart of Movie' } },
       { path: 'popular', component: MovieListComponent, data: { title: 'popular', name: 'Popular Movies' } },
       { path: 'upcoming', component: MovieListComponent, data: { title: 'upcoming', name: 'Upcoming Movies' } },
       { path: 'latest', component: LatestMoviesComponent, data: { title: 'latest', name: 'Latest Movies' } },
