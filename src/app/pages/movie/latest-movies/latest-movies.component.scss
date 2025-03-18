@@ -1,0 +1,52 @@
+.main-movie{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0% auto;
+}
+
+.main-poster{
+    padding: 20px;
+
+}
+.poster{
+    width: 100%;
+}
+.overview{
+    font-size: 25px;
+    color: var(--text-color);
+    // font-family: 'Comfortaa', cursive;
+    font-family: 'Open Sans', sans-serif;
+}
+.movie-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.title{
+    font-size: 40px;
+    color: var(--text-color);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+.extra-space{
+    flex: 1 1 auto;
+}
+.title-link1{
+    width: 50px;
+}
+.title-link{
+    width: 25px;
+}
+.rating-num{
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 10px;
+}
+
+.poster-company{
+    width: 50px;
+    padding: 15px;
+}
+.last{
+    padding-top:50px; 
+}

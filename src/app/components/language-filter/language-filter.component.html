@@ -1,0 +1,22 @@
+<div class="filter">
+  <p class="m-b-20">Filter</p>
+  <form class="example-form" [formGroup]="languageForm"
+    (ngSubmit)="onSubmitLanguage(languageForm.value)">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label class="lable">Language</mat-label>
+      <input type="text" placeholder="Languages" class="input-lang" aria-label="Languages" matInput
+        formControlName="language" [matAutocomplete]="movieLanguage">
+      <mat-autocomplete autoActiveFirstOption #movieLanguage="matAutocomplete" [displayWith]="displayLanguageFn"
+        class="auto-complete">
+        @for(lang of langauges; track lang.id) {
+          <mat-option [value]="lang" class="options">
+            <span>{{lang.english_name}}</span>
+          </mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+    <div class="row justify-content-flex-end">
+      <button mat-raised-button type="submit" class="lang-sub" color="primary">Search</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmitMovieSearch(searchForm.value, $event)" class="example-form">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label class="lable">Search {{currentRoute}}</mat-label>
+    <input class="input-lang" matInput [matAutocomplete]="autoMovie" formControlName="movie" #filter>
+    <button mat-icon-button matSuffix (click)="onSubmitMovieSearch(searchForm.value, $event)">
+      <mat-icon>search</mat-icon>
+    </button>
+    <mat-autocomplete #autoMovie="matAutocomplete" class="auto-complete" autoActiveFirstOption
+      [displayWith]="displayFn" #scroller>
+      @for (option of filteredOptions | async; track option.id) {
+        <mat-option [value]="option" class="options">
+          <div class="row align-items-center">
+            <img class="example-option-img" aria-hidden
+              [src]="option.poster_path || option.profile_path ? 'https://image.tmdb.org/t/p/w500'+(option.poster_path || option.profile_path) : 'assets/no_poster.jpg'"
+              height="40">
+            <div class="text-drop">
+              <p>{{ option.title || option.name }} {{ option.original_title ? '|'+option.original_title : ''
+                }}</p>
+              <p class="sub-title-val">{{option.known_for_department || getLang(option.original_language)}} |
+                {{option.vote_average || option.popularity }}</p>
+            </div>
+          </div>
+        </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

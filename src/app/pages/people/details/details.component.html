@@ -1,0 +1,42 @@
+@if ($movieDetails | async; as movie) {
+<div class="container">
+  <div class="row column-md main-head">
+    <div class="poster-section">
+      <img [src]="movie.profile_path ? 'https://image.tmdb.org/t/p/w500'+movie.profile_path : 'assets/no_poster.jpg'"
+        alt="">
+    </div>
+    <div class="tv-details">
+      <h3 class="title">{{movie.name}}</h3>
+      <span class="genres">{{movie.place_of_birth}}</span>
+      <div class="p-tb-1"></div>
+      <i class="tag-line">{{movie.known_for_department}}</i>
+      <div class="p-tb-1"></div>
+      @if (movie.biography) {
+      <h4 class="title-header">Biography :</h4>
+      <div class="p-t-1"></div>
+      <p class="overview">{{movie.biography}}</p>
+      <div class="p-tb-1"></div>
+      }
+      @if (movie.birthday) {
+      <h6 class="language">Birthday : <span>{{movie.birthday | date:'longDate'}}</span></h6>
+      }
+      @if (movie.also_known_as.length !== 0) {
+      <h6 class="language">
+        Also Known As :
+        @for (lag of movie.also_known_as; track i;let i = $index) {
+        <span>{{(movie.also_known_as.length - 1) === i ? lag : lag+", "}}</span>
+        }
+      </h6>
+      }
+      <div class="p-tb-1"></div>
+    </div>
+  </div>
+  @if ($credits | async; as credits) {
+  <div class="cast-list">
+    @for (cast of credits.cast; track $index) {
+    <app-card [link]="'/'+cast.media_type+'/popular'" [credits]="cast"></app-card>
+    }
+  </div>
+  }
+</div>
+}

@@ -1,0 +1,20 @@
+@if (credits) {
+  <a [routerLink]="[link, credits.id]">
+    <div class="card-div">
+        <div class="poster">
+            <img
+                [src]="(credits.poster_path || credits.profile_path) ?
+                'https://image.tmdb.org/t/p/w500'+(credits.poster_path || credits.profile_path)
+                :'assets/no_poster.jpg'" alt="profile_post"
+            >
+        </div>
+        <div class="details">
+            <h2>{{credits.original_title || credits.original_name}}</h2>
+            <h4>{{credits.profile_path ? credits.known_for_department : ((credits.release_date || credits.first_air_date) | date:'yyyy') }}</h4>
+            <div class="info">
+                <p [matTooltip]="credits.overview">{{credits.overview}}</p>
+            </div>
+        </div>
+    </div>
+  </a>
+}

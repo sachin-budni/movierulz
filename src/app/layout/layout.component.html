@@ -1,0 +1,58 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" appTheme>
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav [mode]="mobileQuery.matches?'over':'side'" disableClose="true" [opened]="!mobileQuery.matches"
+      class="example-side-nav">
+      @if (mobileQuery.matches) {
+        <div style="float: right">
+          <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon svgIcon="menu"></mat-icon>
+          </button>
+        </div>
+      }
+      <div class="nav-div column">
+        <mat-slide-toggle class="toggle" (change)="changeToggle($event)">
+          <span>Change Theme!</span>
+        </mat-slide-toggle>
+        <button mat-raised-button routerLinkActive="active" class="trend" routerLink="/all/trendingchart">All Trending Chart</button>
+        @for (link of links; track link) {
+          <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{link.name}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list class="nav-list">
+              @for (nav of link.links; track nav.path) {
+                <a mat-list-item routerLinkActive="active"
+                  routerLink="/{{link.link}}/{{nav.path}}">
+                  <span class="link-name">{{nav.name}}</span>
+                </a>
+              }
+            </mat-nav-list>
+          </mat-expansion-panel>
+        }
+      </div>
+      <mat-divider></mat-divider>
+      <ng-container>
+        <app-language-filter></app-language-filter>
+      </ng-container>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+      <div class="sidenav-div">
+        @if (mobileQuery.matches) {
+          <div class="button-menu">
+            <button mat-icon-button (click)="snav.toggle()">
+              <mat-icon svgIcon="menu"></mat-icon>
+            </button>
+          </div>
+        }
+        <div class="routerdata">
+          <div class="search-bar">
+            <app-movie-filter></app-movie-filter>
+          </div>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

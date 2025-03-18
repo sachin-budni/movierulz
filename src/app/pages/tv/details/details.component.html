@@ -1,0 +1,62 @@
+@if (($tvDetails | async); as tv) {
+<div class="container">
+  <div class="row column-md main-head">
+    <div class="poster-section">
+      <img [src]="tv.poster_path ? 'https://image.tmdb.org/t/p/w500'+tv.poster_path : 'assets/no_poster.jpg'" alt="">
+      <div class="row justify-content-center network">
+        <div class="row align-items-center">
+          @if (tv.networks.length !== 0) {
+          <img [src]="'https://image.tmdb.org/t/p/w500'+tv.networks[0].logo_path" alt="">
+          }
+        </div>
+        <div class="watch-line">
+          <p>Now Streaming</p>
+          <b>Watch Now</b>
+        </div>
+      </div>
+    </div>
+    <div class="tv-details">
+      <h3 class="title">{{tv.name}}</h3>
+      @for (gen of tv.genres; track $index) {
+      <span class="genres">{{gen.name}}</span>
+      }
+      <div class="p-tb-1"></div>
+      <i class="tag-line">{{tv.tagline}}</i>
+      <div class="p-tb-1"></div>
+      @if (tv.overview) {
+      <h4 class="title-header">Overview :</h4>
+      <div class="p-t-1"></div>
+      <p class="overview">{{tv.overview}}</p>
+      <div class="p-tb-1"></div>
+      }
+      @if (tv.created_by.length !== 0) {
+      <h4 class="title-header">Created By:</h4>
+      <div class="row">
+        @for (director of tv.created_by; track $index) {
+        <div class="director-div">
+          <img class="profile-pic"
+            [src]="director.profile_path ? 'https://image.tmdb.org/t/p/w500'+director.profile_path : 'assets/account_dp.svg'"
+            alt="">
+          <p class="overview director-name">{{director.name}}</p>
+        </div>
+        }
+      </div>
+      <div class="p-tb-1"></div>
+      }
+      <h6 class="language">Languages :
+        @for (lag of tv.spoken_languages; track $index) {
+        <span>{{lag.english_name}}</span>
+        }
+      </h6>
+      <h6 class="language">Seasons : <span>{{tv.number_of_seasons}}</span></h6>
+      <h6 class="language">Episods : <span>{{tv.number_of_episodes}}</span></h6>
+      <div class="p-tb-1"></div>
+      @if (tv.videos && tv.videos?.results && tv.videos?.results.length !== 0) {
+      <button mat-stroked-button class="button-color"
+        (click)="playTrailer(tv.videos.results[0])"><mat-icon>play_arrow</mat-icon>Play Trailer</button>
+      }
+    </div>
+  </div>
+  <app-tv [Movies]="$similarTV" (pages)="nextOrPreviousPage($event)" [MovieClassName]="routeName"></app-tv>
+</div>
+}

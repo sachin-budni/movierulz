@@ -1,0 +1,104 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.search-bar {
+  width: calc(100% - 80px);
+  margin: 20px 40px 0px;
+}
+
+// .options span {
+//   color: var(--text-color);
+// }
+
+// .options:hover {
+//   background-color: var(--app-background) !important;
+// }
+
+// .mat-option.mat-active {
+//   background-color: var(--app-background) !important;
+// }
+
+
+
+.sidenav-div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: auto;
+}
+
+.example-is-mobile .example-sidenav-container {
+  flex: 1 0 auto;
+}
+
+.example-side-nav {
+  width: 250px;
+  background-color: var(--app-background);
+  border-right: 1px solid;
+  position: fixed;
+}
+
+.sidenav-content {
+  background-color: var(--app-background);
+}
+
+.nav-div {
+  padding: 40px 10px 0px 10px;
+}
+
+.nav-list .link-name {
+  color: var(--text-color);
+  }
+.trend {
+  color: var(--text-color) !important;
+  background-color: var(--app-background) !important;
+}
+
+.nav-list a {
+  color: var(--text-color);
+  margin: 10px;
+  border-radius: 4px;
+  width: calc(100% - 20px);
+  height: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: var(--movie-ft-wight);
+}
+
+.routerdata {
+  margin: 0% auto;
+  max-width: 1300px;
+  overflow: auto;
+  width: 100%;
+}
+
+.active {
+  background-color: var(--active-bk-color) !important;
+}
+
+.button-menu {
+  position: relative;
+}
+
+.toggle span {
+  color: var(--text-color);
+  margin-left: 10px;
+}
+
+.toggle {
+  margin: 0px 20px 20px;
+}

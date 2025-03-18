@@ -1,0 +1,19 @@
+@if (($latestTV | async); as tv) {
+<div class="container">
+  <div class="row main-head">
+    <div class="poster-section">
+      <img [src]="tv.poster_path ? 'https://image.tmdb.org/t/p/w500'+tv.poster_path : 'assets/no_poster.jpg'" alt="">
+      <div class="row align-items-center">
+        @for (web of tv.networks; track $index) {
+        <img [src]="'https://image.tmdb.org/t/p/w500'+web.logo_path" alt="">
+        }
+      </div>
+    </div>
+    <div class="tv-details" style="background-image: url(https://image.tmdb.org/t/p/w500{{tv.backdrop_path}});">
+      <h3 class="title">{{tv.name}}</h3>
+      <div class="m-tb-5"></div>
+      <p class="overview">{{tv.overview}}</p>
+    </div>
+  </div>
+</div>
+}

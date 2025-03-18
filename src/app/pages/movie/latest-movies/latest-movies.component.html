@@ -1,0 +1,36 @@
+@if ($latestMovies | async; as movie) {
+<div class="main-movie">
+  <div class="movie-title">
+    <p class="title">{{movie.title}}</p>
+  </div>
+  <div class="main-poster">
+    <img class="poster" [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path" alt="">
+  </div>
+  <div class="movie-title">
+    @for (item of movie.production_companies; track item.logo_path) {
+    <div>
+      <img class="poster-company" [src]="'https://image.tmdb.org/t/p/w500'+item.logo_path" alt="">
+    </div>
+    }
+    <span class="extra-space"></span>
+    <p class="rating-num">
+      Rating: {{movie.vote_average}}
+    </p>
+    <img class="title-link" src="assets/star.png" alt="">
+  </div>
+  <div>
+    <a href="https://www.imdb.com/title/{{movie.imdb_id}}" target="_blank" style="color: white">
+      <img class="title-link1" src="assets/imdb.jpg" alt="imdb">
+    </a>
+    <a [href]="movie.homepage" target="_blank" style="color: white">
+      <img class="title-link1" src="assets/marvel.png" alt="imdb">
+    </a>
+  </div>
+  <div>
+    <p class="overview">
+      {{movie.overview}}
+    </p>
+  </div>
+  <img class="poster last" [src]="'https://image.tmdb.org/t/p/w500'+movie.backdrop_path" alt="">
+</div>
+}

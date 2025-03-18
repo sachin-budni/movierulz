@@ -1,0 +1,89 @@
+.example-option-img {
+  vertical-align: middle;
+  margin-right: 8px;
+  border: 1px solid var(--text-color);
+  object-fit: contain;
+}
+
+.text-drop p {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  line-height: 16px;
+  white-space: nowrap;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-color);
+}
+
+.rate {
+  font-size: 18px;
+  margin-right: 0px !important;
+}
+
+.filter > .m-b-20 {
+  margin-bottom: 20px;
+}
+.filter > p {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  font-size: 20px;
+}
+.filter {
+  padding: 20px;
+}
+
+.lang-sub {
+  background-color: var(--active-bk-color) !important;
+}
+
+.toggle {
+  color: var(--text-color);
+}
+
+.mat-expansion-panel {
+  background-color: var(--app-background) !important;
+  color: var(--text-color) !important;
+}
+
+.mat-expansion-panel-header-title {
+  color: var(--text-color) !important;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+  box-shadow: none !important;
+  width: 100% !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-bar {
+    width: calc(100% - 20px);
+    margin: 0px 10px;
+  }
+}
+.example-full-width {
+  width: 100%;
+  color: var(--text-color);
+}
+
+.lable {
+  color: var(--text-color);
+}
+.input-lang {
+  color: var(--text-color) !important;
+}
+
+.mat-expansion-indicator::after {
+  color: var(--text-color) !important;
+}
+.options span {
+  color: var(--text-color);
+}
+
+.options:hover {
+  background-color: var(--app-background) !important;
+}
+
+.mat-option.mat-active {
+  background-color: var(--app-background) !important;
+}

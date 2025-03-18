@@ -1,0 +1,25 @@
+@if ($Movies | async; as Movies) {
+<div class="movies">
+  @for (movie of Movies.results; track movie.id) {
+  <app-card [link]="'/people/'+$nameOfRoute" [credits]="movie" class="example-card"></app-card>
+  } @empty {
+  <div class="no-data">
+    <img src="assets/no_data.svg" alt="no_data" />
+  </div>
+  }
+</div>
+@if (Movies.total_results !== 0) {
+  <mat-toolbar class="paginator">
+    <mat-toolbar-row>
+      <span class="example-spacer"></span>
+      <span>page</span>&nbsp;&nbsp;{{Movies.page}} of {{Movies.total_pages}}
+      <button mat-icon-button (click)="pageChange(Movies.page-1)" [disabled]="Movies.page == 1">
+        <mat-icon svgIcon="left_arrow"></mat-icon>
+      </button>
+      <button mat-icon-button (click)="pageChange(Movies.page+1)" [disabled]="Movies.total_pages == Movies.page">
+        <mat-icon svgIcon="right_arrow"></mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+}
+}
