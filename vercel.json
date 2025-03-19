@@ -2,7 +2,7 @@
     "version": 2,
     "public": true,
     "name": "test-universal",
-    "devCommand": "node dist/server/server.mjs",
+    "devCommand": "node server/server.mjs",
     "rewrites": [
       {
         "source": "/(.*)",
