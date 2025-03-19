@@ -2,8 +2,12 @@
     "version": 2,
     "public": true,
     "name": "test-universal",
+    "devCommand": "node dist/server/server.mjs",
     "rewrites": [
-      { "source": "/(.*)", "destination": "/api" }
+      {
+        "source": "/(.*)",
+        "destination": "/api"
+      }
     ],
     "functions": {
       "api/index.js": {
