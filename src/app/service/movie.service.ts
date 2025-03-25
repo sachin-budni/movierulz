@@ -25,6 +25,16 @@ export class MovieService {
       },
       'url'
     )
+
+    this.meta.updateTag({name: 'title', content: (result.title || result.name)}, 'url')
+    this.meta.updateTag({name: 'description', content: (result.overview || result.biography)}, 'url')
+    this.meta.updateTag(
+      {
+        name: 'image',
+        content: 'https://image.tmdb.org/t/p/w500'+(result.poster_path || result.profile_path)
+      },
+      'url'
+    )
   }
 
   get getLanguages(): Observable<any[]> {
